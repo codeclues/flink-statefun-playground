@@ -1,7 +1,7 @@
 package org.ramslabs;
 
-import static org.ramslabs.Messages.SET_PRODUCT_TYPE;
-import static org.ramslabs.Messages.*;
+import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.SET_PRODUCT_TYPE;
+import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.*;
 
 import java.util.HashMap;
 import java.util.Map;
