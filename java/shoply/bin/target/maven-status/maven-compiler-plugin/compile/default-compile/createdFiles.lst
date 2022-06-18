@@ -1,0 +1,16 @@
+org\ramslabs\Messages$Checkout.class
+org\ramslabs\Expose$UndertowStateFunHandler.class
+org\ramslabs\Expose.class
+org\ramslabs\Messages$ClearCart.class
+org\ramslabs\Messages$AddToCart.class
+org\ramslabs\Messages$Receipt.class
+org\ramslabs\Messages$ItemAvailability$Status.class
+org\ramslabs\Messages$EgressRecord.class
+org\ramslabs\Messages$RequestItem.class
+org\ramslabs\StockFn.class
+org\ramslabs\UserShoppingCartFn.class
+org\ramslabs\UserShoppingCartFn$Basket.class
+org\ramslabs\Messages$RestockItem.class
+org\ramslabs\Identifiers.class
+org\ramslabs\Messages.class
+org\ramslabs\Messages$ItemAvailability.class
