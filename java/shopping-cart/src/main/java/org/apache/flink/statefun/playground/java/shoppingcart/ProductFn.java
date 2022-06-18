@@ -1,4 +1,4 @@
-package org.ramslabs;
+package org.apache.flink.statefun.playground.java.shoppingcart;
 
 import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.SET_PRODUCT_TYPE;
 import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.*;
