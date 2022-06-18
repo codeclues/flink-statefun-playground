@@ -1,4 +1,3 @@
-
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -17,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.flink.statefun.playground.java.shoppingcart;
+package org.ramslabs;
 
 import static io.undertow.UndertowOptions.ENABLE_HTTP2;
 
@@ -47,9 +46,21 @@ public class Expose {
             .withValueSpec(UserShoppingCartFn.BASKET)
             .withSupplier(UserShoppingCartFn::new)
             .build();
+    
+    StatefulFunctionSpec productFn =
+            StatefulFunctionSpec.builder(ProductFn.TYPE)
+                .withValueSpec(ProductFn.PRODUCTS)
+                .withSupplier(ProductFn::new)
+                .build();
+
+        StatefulFunctionSpec inventoryFn =
+            StatefulFunctionSpec.builder(InventoryFn.TYPE)
+                .withValueSpec(InventoryFn.INVENTORY)
+                .withSupplier(InventoryFn::new)
+                .build();
 
     StatefulFunctions functions = new StatefulFunctions();
-    functions.withStatefulFunction(stockFn).withStatefulFunction(userShoppingCartFn);
+    functions.withStatefulFunction(stockFn).withStatefulFunction(userShoppingCartFn).withStatefulFunction(productFn).withStatefulFunction(inventoryFn);
     RequestReplyHandler handler = functions.requestReplyHandler();
 
     /* This example uses the Undertow http server, but any HTTP server/framework will work as-well */
