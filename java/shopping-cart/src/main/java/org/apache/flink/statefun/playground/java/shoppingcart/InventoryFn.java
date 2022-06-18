@@ -1,4 +1,4 @@
-package org.ramslabs;
+package org.apache.flink.statefun.playground.java.shoppingcart;
 
 import static org.ramslabs.Messages.ITEM_AVAILABILITY_TYPE;
 import static org.ramslabs.Messages.REQUEST_ITEM_TYPE;
