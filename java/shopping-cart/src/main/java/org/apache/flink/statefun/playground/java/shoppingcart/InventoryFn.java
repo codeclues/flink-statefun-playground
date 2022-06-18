@@ -1,9 +1,9 @@
 package org.apache.flink.statefun.playground.java.shoppingcart;
 
-import static org.ramslabs.Messages.ITEM_AVAILABILITY_TYPE;
-import static org.ramslabs.Messages.REQUEST_ITEM_TYPE;
-import static org.ramslabs.Messages.RESTOCK_ITEM_TYPE;
-import static org.ramslabs.Messages.*;
+import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.ITEM_AVAILABILITY_TYPE;
+import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.REQUEST_ITEM_TYPE;
+import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.RESTOCK_ITEM_TYPE;
+import static org.apache.flink.statefun.playground.java.shoppingcart.Messages.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,10 +21,10 @@ import org.apache.flink.statefun.sdk.java.message.Message;
 import org.apache.flink.statefun.sdk.java.message.MessageBuilder;
 import org.apache.flink.statefun.sdk.java.types.SimpleType;
 import org.apache.flink.statefun.sdk.java.types.Type;
-import org.ramslabs.Messages.ItemAvailability;
-import org.ramslabs.Messages.RequestItem;
-import org.ramslabs.Messages.RestockItem;
-import org.ramslabs.Messages.ItemAvailability.Status;
+import org.apache.flink.statefun.playground.java.shoppingcart.Messages.ItemAvailability;
+import org.apache.flink.statefun.playground.java.shoppingcart.Messages.RequestItem;
+import org.apache.flink.statefun.playground.java.shoppingcart.Messages.RestockItem;
+import org.apache.flink.statefun.playground.java.shoppingcart.Messages.ItemAvailability.Status;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
