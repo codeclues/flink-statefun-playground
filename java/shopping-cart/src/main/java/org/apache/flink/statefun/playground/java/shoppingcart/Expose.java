@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.ramslabs;
+package org.apache.flink.statefun.playground.java.shoppingcart;
 
 import static io.undertow.UndertowOptions.ENABLE_HTTP2;
 
