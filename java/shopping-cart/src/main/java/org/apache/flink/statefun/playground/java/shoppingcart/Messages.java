@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.ramslabs;
+package org.apache.flink.statefun.playground.java.shoppingcart;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
