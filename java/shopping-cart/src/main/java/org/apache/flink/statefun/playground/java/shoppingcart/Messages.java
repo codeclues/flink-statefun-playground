@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.flink.statefun.playground.java.shoppingcart;
+package org.ramslabs;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -64,6 +64,37 @@ public class Messages {
           TypeName.typeNameFromString("com.example/RestockItem"),
           mapper::writeValueAsBytes,
           bytes -> mapper.readValue(bytes, RestockItem.class));
+  
+  public static final Type<Product> ADD_PRODUCT_TYPE =
+	      SimpleType.simpleImmutableTypeFrom(
+	          TypeName.typeNameFromString("com.example/AddProduct"),
+	          mapper::writeValueAsBytes,
+	          bytes -> mapper.readValue(bytes, Product.class));
+  
+  public static final Type<Product> DELETE_PRODUCT_TYPE =
+	      SimpleType.simpleImmutableTypeFrom(
+	          TypeName.typeNameFromString("com.example/DeleteProduct"),
+	          mapper::writeValueAsBytes,
+	          bytes -> mapper.readValue(bytes, Product.class));
+  
+  
+  
+  public static final Type<InventoryOperation> SET_PRODUCT_TYPE =
+	      SimpleType.simpleImmutableTypeFrom(
+	          TypeName.typeNameFromString("com.example/SetproductType"),
+	          mapper::writeValueAsBytes,
+	          bytes -> mapper.readValue(bytes, InventoryOperation.class));
+  
+  public static final Type<InventoryOperation> INCREMENT_PRODUCT_TYPE =
+	      SimpleType.simpleImmutableTypeFrom(
+	          TypeName.typeNameFromString("com.example/IncrementproductType"),
+	          mapper::writeValueAsBytes,
+	          bytes -> mapper.readValue(bytes, InventoryOperation.class));
+  public static final Type<InventoryOperation> DECREMENT_PRODUCT_TYPE =
+	      SimpleType.simpleImmutableTypeFrom(
+	          TypeName.typeNameFromString("com.example/DecrementproductType"),
+	          mapper::writeValueAsBytes,
+	          bytes -> mapper.readValue(bytes, InventoryOperation.class));
 
   public static class ClearCart {
     private final String userId;
@@ -156,6 +187,39 @@ public class Messages {
       return "RestockItem{" + "itemId='" + itemId + '\'' + ", quantity=" + quantity + '}';
     }
   }
+  
+  public static class InventoryOperation {
+	    private final String productId;
+	    private final int quantity;
+	    
+	    public enum Operation {
+	        SETPRODUCT,
+	        INCREMENTPRODUCTS,
+	        DECREMENTPRODUCTS
+	      }
+	    private Operation operation;
+
+	    @JsonCreator
+	    public InventoryOperation(
+	        @JsonProperty("productId") String itemId, @JsonProperty("quantity") int quantity,@JsonProperty("operation") Operation operation) {
+	      this.productId = itemId;
+	      this.quantity = quantity;
+	      this.operation = operation;
+	    }
+
+	    public String getProductId() {
+	      return productId;
+	    }
+
+	    public int getQuantity() {
+	      return quantity;
+	    }
+
+	    @Override
+	    public String toString() {
+	      return "InventoryOperation{" + "operation='" + operation + '\''  + "productId='" + productId + '\'' + ", quantity=" + quantity + '}';
+	    }
+	  }
 
   public static class AddToCart {
     private final String userId;
@@ -198,6 +262,38 @@ public class Messages {
           + '}';
     }
   }
+  
+	public static class Product {
+		private final double price;
+
+		public double getPrice() {
+			return price;
+		}
+
+		public String getId() {
+			return id;
+		}
+
+		public String getDescription() {
+			return description;
+		}
+
+		private final String id;
+		private final String description;
+
+		@JsonCreator
+		public Product(@JsonProperty("price") double price, @JsonProperty("id") String id,
+				@JsonProperty("description") String description) {
+			this.price = price;
+			this.id = id;
+			this.description = description;
+		}
+
+		@Override
+		public String toString() {
+			return "RequestItem{" + "id=" + id +  "price=" + price + "description=" + description + '}';
+		}
+	}
 
   // ---------------------------------------------------------------------
   // Internal messages
@@ -240,6 +336,8 @@ public class Messages {
       return "RequestItem{" + "quantity=" + quantity + '}';
     }
   }
+  
+  
 
   public static class ItemAvailability {
 
