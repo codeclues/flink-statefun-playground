@@ -15,8 +15,8 @@ import org.apache.flink.statefun.sdk.java.ValueSpec;
 import org.apache.flink.statefun.sdk.java.message.Message;
 import org.apache.flink.statefun.sdk.java.types.SimpleType;
 import org.apache.flink.statefun.sdk.java.types.Type;
-import org.ramslabs.Messages.InventoryOperation;
-import org.ramslabs.Messages.Product;
+import org.apache.flink.statefun.playground.java.shoppingcart.Messages.InventoryOperation;
+import org.apache.flink.statefun.playground.java.shoppingcart.Messages.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
